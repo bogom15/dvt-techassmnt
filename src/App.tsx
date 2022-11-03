@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Layout from "antd/lib/layout";
+import { StateContext, DispatchContext } from "../src/context/context";
+import { reducer, initialState } from "./reducers";
+import Homepage from "./pages/Homepage/HomePage";
+import Header from "./components/Header/Header";
+import "./App.less";
 
-function App() {
+const App = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <DispatchContext.Provider value={dispatch}>
+        <StateContext.Provider value={state}>
+          <Router>
+            <Layout>
+              <Header />
+              <Layout.Content className="site-layout">
+                <div className="site-layout-background">
+                  <Routes>
+                    <Route path="/artists/:id"></Route>
+
+                    <Route path="/search">{/* <Search /> */}</Route>
+                    <Route path="/" element={<Homepage />}></Route>
+                  </Routes>
+                </div>
+              </Layout.Content>
+            </Layout>
+          </Router>
+        </StateContext.Provider>
+      </DispatchContext.Provider>
     </div>
   );
-}
+};
 
 export default App;

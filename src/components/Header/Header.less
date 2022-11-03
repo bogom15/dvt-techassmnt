@@ -1,0 +1,32 @@
+.Header {
+  border-bottom: 1px solid #33363b;
+  position: fixed;
+  top: 0;
+  z-index: 10000;
+  width: 100%;
+  margin-bottom: 100px;
+  .menu {
+    padding: 0 50px;
+    margin-top: -3px;
+    border: none;
+  }
+  .align-center {
+    display: flex;
+    align-items: center;
+  }
+  .logo {
+    height: 2.5em;
+  }
+  .menu {
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+    }
+  }
+  .ant-btn {
+    display: none;
+    @media (min-width: 768px) {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@import "antd/dist/antd.less";
+@import "~antd/dist/antd.dark.less";
+
+.App {
+  p {
+    margin: 0;
+  }
+  a {
+    color: @text-color;
+    &:hover {
+      color: inherit;
+      text-decoration: underline;
+    }
+  }
+
+  .ant-layout-header {
+    padding: 0 15px;
+    @media (min-width: 768px) {
+      padding: 0 25px;
+    }
+    @media (min-width: 992px) {
+      padding: 0 50px;
+    }
+  }
+
+  .site-layout {
+    margin-top: 64px;
+    padding: 0 15px;
+    min-height: calc(100vh - 64px);
+    @media (min-width: 768px) {
+      padding: 0 25px;
+    }
+    @media (min-width: 992px) {
+      padding: 0 50px;
+    }
+    @media (min-width: 1200px) {
+      padding: 0 50px;
+    }
+    @media (min-width: 1600px) {
+      max-width: 1600px;
+      margin: 64px auto 64px;
+    }
+  }
+
+  .site-layout-background {
+    padding: 24px 0;
+    @media (min-width: 768px) {
+      padding: 24px 0;
+    }
+    @media (min-width: 992px) {
+      padding: 24px;
+    }
+    @media (min-width: 1200px) {
+      padding: 24px;
+    }
+  }
+}
